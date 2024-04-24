@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <>
     <Nav />
-    <div className="bg-black h-screen w-full"></div>
+    <div className="bg-blue-600 h-screen w-full"></div>
     </>
   );
 };
