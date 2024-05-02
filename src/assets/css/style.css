@@ -248,13 +248,13 @@ span {
         content: 'Software Engineer';
     }
     41%, 60% {
-        content: 'Critical Thinker';
+        content: 'Student';
     }
     61%, 80% {
-        content: 'Problem Solver';
+        content: 'Web Developer';
     }
     81%, 100% {
-        content: 'Leader';
+        content: 'Software Engineer';
     }
 }
 
