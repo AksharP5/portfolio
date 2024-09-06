@@ -11,8 +11,8 @@
 }
 
 :root{
-    --bg-color: #1f242d;
-    --second-bg-color: #323946;
+    --bg-color: #000000;
+    --second-bg-color: #161616;
     --text-color: #fff;
     --main-color: #0ef;
 }
@@ -306,7 +306,7 @@ span {
 .projects-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    align-items: stretch;
     gap: 3.5rem;
 
 }
@@ -403,3 +403,87 @@ span {
     }
 }
 
+/* Skills Section */
+
+.skills {
+    background: var(--bg-color);
+}
+
+.skills .container {
+    background: #002c3a;
+    color: var(--text-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.skills .container .row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+
+}
+
+.skills .container .bar {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 1rem;
+    background: var(--bg-color);
+    box-shadow: 0 4px 10px var(--bg-color);
+    transition: 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills .container .bar:hover {
+    box-shadow: 0 4px 10px var(--main-color);
+    transform: scale(1.03);
+}
+
+.skills .container .bar .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skills .container .bar .info img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.skills .container .bar .info span {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 750px) {
+    .skills .container {
+        margin: 0;
+        padding: 1rem;
+        width: 100%;
+    }
+    .skills .container .row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .skills .container .bar {
+        padding: 10;
+        margin: 0 0.5rem;    
+    }
+    .skills .container .bar .info img {
+        width: 60px;
+        height: 60px;
+    }
+    .skills .container .bar .info span {
+        font-size: 1.6rem;
+    }
+}
