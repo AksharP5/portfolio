@@ -266,3 +266,140 @@ span {
         width: calc(100% + 8px);
     }
 }
+@media (max-width: 1000px) {
+    .home {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 995px) {
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+    .home .home-content h3 {
+        font-size: 2.5rem;
+    }
+    .home-content h1 {
+        font-size: 5rem;
+    }
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;  
+    }
+
+}
+
+/* Projects Section */
+
+.projects {
+    background: var(--second-bg-color);
+}
+
+.heading {
+    text-align: center;
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+    vertical-align: middle;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 3.5rem;
+
+}
+
+.project-box {
+    background-color: var(--main-color);
+    border-radius: 3rem;
+    height: 100%;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    padding: 2rem;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-box:hover {
+    background: transparent;
+    color: var(--main-color);
+    transform: scale(1.03);
+    border: 1px solid var(--main-color);
+}
+
+.project-box .project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.project-info h4 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.projects-container a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.project-info ul{
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    max-width: 90%;
+    
+}
+.project-info ul li {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+
+
+@media (max-width: 991px) {
+    section {
+        padding: 10rem 3% 2rem;
+    }
+    .projects {
+        padding-bottom: 7rem;
+    }
+}
+
+@media (max-width: 895px) {
+    .projects h2 {
+        margin-bottom: 3rem;
+    }
+    .projects-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .heading {
+        font-size: 3.5rem;
+    }
+    .project-info h4 {
+        font-size: 2.2rem;
+    }
+    .project-info ul {
+        font-size: 1.2rem;
+    }
+    .project-info ul li {
+        margin-bottom: 1rem;
+    }
+}
+
