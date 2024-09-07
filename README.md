@@ -1,3 +1,1 @@
-# Check It Out
-
-[Portfolio](https://aksharp5.github.io/portfolio/)
+# [CLICK HERE](https://aksharp5.github.io/portfolio/)
