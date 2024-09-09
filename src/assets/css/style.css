@@ -266,13 +266,14 @@ span {
         width: calc(100% + 8px);
     }
 }
-@media (max-width: 1000px) {
-    .home {
-        gap: 4rem;
+
+@media (max-width: 1150px) {
+    .home .home-content h3 {
+        font-size: 3.5rem;
     }
 }
 
-@media (max-width: 995px) {
+@media (max-width: 999px) {
     .home {
         flex-direction: column;
         margin: 5rem 4rem;
