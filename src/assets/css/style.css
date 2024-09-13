@@ -206,6 +206,13 @@ span {
     cursor: pointer;
 }
 
+.btn:hover {
+    transform: scale(1.03);
+    background-color: var(--main-color);
+    color: var(--text-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
 .typing-text {
     font-size: 34px;
     font-weight: 600;
@@ -661,4 +668,40 @@ span {
     .experience .right {
         left: 0%;
     }
+}
+
+/* Contact Section */
+.contact h2 {
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 2px solid var(--main-color);
+    margin: 1rem 0;
+    resize: none;
+}
+
+.contact form btn {
+    margin-top: 2rem;
 }
