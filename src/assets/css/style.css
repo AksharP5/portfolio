@@ -85,14 +85,26 @@ html::-webkit-scrollbar-thumb {
     font-size: 3.6rem;
     color: var(--main-color);
     display: none;
+    transition: 0.3s ease;
+    z-index: 1000;
+    position: fixed;
+    top: 20px;
+    right: 20px;
 }
 
 @media (max-width: 995px) {
     #menu-icon {
         display: block;
     }
+
+    #menu-icon:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
     .navbar {
-        position : absolute;
+        position: absolute;
         top: 100%;
         right: 0;
         width: 40%;
@@ -102,16 +114,38 @@ html::-webkit-scrollbar-thumb {
         padding: 1rem 3%;
         background-color: var(--second-bg-color);
         border-top: 0.1rem solid rgba(0, 0, 0, .1);
-        display: none;
+        display: none; 
+        transition: 0.5s ease;
     }
+
     .navbar.active {
-        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9); 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 999; 
+        transition: 0.5s ease;
     }
+
+    .navbar.active ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
     .navbar a {
         display: block;
         font-size: 2rem;
         margin: 3rem 0;
     }
+
     .navbar a:hover,
     .navbar a.active {
         padding: 1rem;
@@ -119,6 +153,7 @@ html::-webkit-scrollbar-thumb {
         border-bottom: .5rem solid var(--main-color);
     }
 }
+
 
 section {
     min-height: 100vh;
@@ -538,7 +573,7 @@ span {
     border: 4px solid var(--main-color);
     top: 15px;
     border-radius: 50%;
-    z-index: 100;
+    z-index: 1;
     font-size: 1.89rem;
     text-align: center;
     font-weight: 600;
