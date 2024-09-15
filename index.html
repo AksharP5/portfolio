@@ -235,14 +235,15 @@
   </section>
   <section class="contact" id="contact">
     <h2 class="heading">Contact Me</h2>
-    <form action="">
+    <form action="https://api.web3forms.com/submit" method="POST">
       <div class="input-box">
+        <input type="hidden" name="access_key" value="e824487e-2f68-4a24-bd25-460b589e2df8">
         <input type="text" name="name" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="Number" placeholder="Phone Number" required>
-        <input type="text" placeholder="Subject" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="Number" name="phone Number" placeholder="Phone Number" required>
+        <input type="text" name="subject" placeholder="Subject" required>
       </div>
-      <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+      <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
       <input type="submit" value="Send Message" class="btn">
     </form>
   </section>
