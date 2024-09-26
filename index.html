@@ -11,7 +11,8 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script type="module" src="src/lightmode.js"></script>
-</head> 
+</head>
+
 <body>
 
   <header class="header">
@@ -25,8 +26,14 @@
       <a href="#contact">Contact</a>
     </nav>
     <button id="theme-switch">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+        <path
+          d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+        <path
+          d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z" />
+      </svg>
     </button>
   </header>
 
@@ -37,8 +44,8 @@
     <div class="home-content">
       <h1>Hi, I'm <span>Akshar</span></h1>
       <h3 class="typing-text">I'm a <span class="typing-span"></span></h3>
-      <p>I am currently a computer science student looking to learn and apply my knowledge to the real-world. I am
-        interested in basketball and music.</p>
+      <p>I am a computer science student eager to learn from experienced mentors in the field of software engineering.
+        In my free time, I enjoy watching sports such as basketball and football, as well as listening to music!</p>
       <div class="social-icon">
         <a href="https://www.linkedin.com/in/akshar5/"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://github.com/AksharP5"><i class="fa-brands fa-square-github"></i></a>
@@ -54,14 +61,19 @@
       <a href="https://github.com/ourPLCC" target="_blank" rel="noopener noreferrer">
         <div class="project-box">
           <div class="project-info">
-            <h4>PLCC</h4>
+            <h4>ourPLCC</h4>
             <ul>
-              <li>A Programming Language Compiler Compiler</li>
-              <li>Introduced a fourth semantics section that accepts user-written Python code</li>
-              <li>Implemented comprehensive tests for all 32 predefined languages using bats</li>
-              <li>Optimized testing efficiency through GitHub Actions pipeline integration</li>
-              <li>Expanded the parser to generate files in Java and Python</li>
-              <li>Deployed a Dockerized testing environment for streamlined testing processes</li>
+              <li>A Programming Languages Compiler Compiler that auto-generates code from a grammar file containing
+                lexical,
+                syntactic (BNF), and semantic rules, enabling users to build custom programming languages</li>
+              <li>Expanded the semantics section to allow for a new section that accepts user written Python code,
+                generating
+                corresponding code in both Python and Java</li>
+              <li>Implemented comprehensive bats tests for all 32 predefined languages, ensuring full test coverage and
+                reliability</li>
+              <li>Deployed a Dockerized testing environment and integrated it with a GitHub Actions pipeline to
+                streamline and
+                optimize the testing process</li>
             </ul>
           </div>
         </div>
@@ -72,44 +84,47 @@
           <div class="project-info">
             <h4>Get Spotify Stats</h4>
             <ul>
-              <li>A Flask Web App for getting Spotify stats</li>
-              <li>Developed a full-stack web application using Flask</li>
+              <li>A Flask website that enables users to discover trending new songs, view their Spotify account
+                statistics, and
+                generate personalized song recommendations to explore new sounds</li>
               <li>Leveraged the Spotify API to deliver real-time account statistics to users</li>
-              <li>Automated the generation of a personalized Discover Weekly Homepage on each visit, enhancing user
-                engagement
-                and satisfaction</li>
-              <li>Implemented features displaying users' recent songs, top songs, top artists, and recommended songs
-                across various time frames for a comprehensive overview</li>
-              <li>Displayed real-time Spotify statistics and personalized recommendations for users</li>
+              <li>Automated the creation of a personalized Discover Weekly homepage for each visit, utilizing the most
+                popular
+                songs</li>
+              <li>Implemented features that display users’ recent songs, top tracks, top artists, and recommended songs
+                across
+                various time frames, providing a comprehensive overview of their account</li>
             </ul>
           </div>
         </div>
       </a>
 
-      <a href="https://github.com/AksharP5/portfolio-react" target="_blank" rel="noopener noreferrer">
+      <a href="https://aksharp5.github.io/portfolio/" target="_blank" rel="noopener noreferrer">
         <div class="project-box">
           <div class="project-info">
-            <h4>React Portfolio</h4>
+            <h4>Portfolio</h4>
             <ul>
-              <li>A Portfolio Website In React</li>
-              <li>Developed a modern and responsive portfolio website using React for an enhanced user experience</li>
-              <li>Enhanced user interface with custom React components for a unique design</li>
-              <li>Implemented engaging and interactive features by incorporating letter animations on hover in the
-                portfolio website</li>
-              <li>Implemented a captivating visual element in the form of a spinning cube on the portfolio website</li>
-              <li>Integrated a contact form for easy communication and collaboration opportunities</li>
+              <li>A personal portfolio website that highlights projects, skills, and experiences, includes links to
+                social media profiles,
+                and offers a user-friendly inquiry form</li>
+              <li>Developed a modern and responsive portfolio website using HTML, CSS, and JavaScript, hosted on GitHub
+                pages</li>
+              <li>Added a light/dark mode toggle that retains user preferences across page reloads and initializes based
+                on the
+                device’s theme settings</li>
+              <li>Integrated a functional ’Contact Me’ form that enables users to send messages directly through the
+                website</li>
             </ul>
           </div>
         </div>
       </a>
 
-      <a href="https://github.com/AksharP5" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/akshar5/details/projects/" target="_blank" rel="noopener noreferrer">
         <div class="project-box">
           <div class="project-info">
-            <h4>Relational Database</h4>
+            <h4>Top Songs 2023</h4>
             <ul>
-              <li>Created a MySQL Database For the Top Songs of 2023</li>
-              <li>Created relational tables for efficient data management and linking</li>
+              <li>A MySQL relational database for the Top Songs of 2023</li>
               <li>Created a function to calculate the age of artists, handling both living and deceased cases</li>
               <li>Implemented and tested stored procedures for dynamic querying of song and artist information</li>
               <li>Developed logical schemas to outline data structures and relationships between all tables</li>
@@ -192,7 +207,7 @@
                 2021-2025 </li>
               <li>Bachelor of Science in Computer Science</li>
               <li>GPA: 3.99</li>
-              <li>Relevant Courses: Data Structures, Design & Analysis of Algorithms, Software Development, 
+              <li>Relevant Courses: Data Structures, Design & Analysis of Algorithms, Software Development,
                 Software Design, Adv Discrete Mathematics, Design Database Management Systems,
                 Image Processing, Theory of Computation, Foundations HCI, and more!
               </li>
@@ -210,9 +225,18 @@
               <li>
                 2023-2024
               </li>
-              <li>Developed valuable problem-solving strategies with peers to aid in understanding difficult concepts</li>
-              <li>Developed student confidence through positive reinforcement strategies</li>
-              <li>Facilitated one-on-one tutoring sessions focusing on academic subject areas</li>
+              <li>Adapted teaching methods to accommodate diverse learning styles and ensure comprehension of
+                challenging
+                subjects
+              </li>
+              <li>Developed supplementary materials and resources to reinforce learning and address specific student
+                needs</li>
+              <li>Facilitated one-on-one tutoring sessions, helping students grasp complex concepts in computer science
+                and improve
+                their academic performance</li>
+              <li>Assisted peers in understanding programming languages and algorithms through tailored explanations and
+                practical
+                examples</li>
             </ul>
           </div>
         </div>
@@ -227,11 +251,19 @@
               <li>
                 2023-Present
               </li>
-              <li>Responded to customer inquiries and provided technical assistance over phone and in person</li>
-              <li>Diagnosed and troubleshot hardware, software, and network issues</li>
-              <li>Wired multiple campus labs to optimize network connectivity and ensure smooth operations</li>
-              <li>Configured hardware, devices, and software to set up workstations for employees</li>
-              <li>Imaged and re-imaged devices and added them to AD</li>
+              <li>Provided technical support by answering phone calls and remotely accessing users’ devices to
+                troubleshoot and
+                resolve issues efficiently
+              </li>
+              <li>Assisted users in-person, addressing walk-in inquiries and delivering prompt solutions to technical
+                challenges</li>
+              <li>Re-imaged devices to maintain system integrity and improve performance, facilitating a smooth user
+                experience</li>
+              <li>Set up labs, classrooms, and faculty workstations, ensuring all equipment was operational and ready
+                for use
+              </li>
+              <li>Collaborated with team members to streamline support processes and improve response times for user
+                inquiries</li>
             </ul>
           </div>
         </div>

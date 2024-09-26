@@ -447,7 +447,7 @@ span {
 
 .project-info h4 {
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 900;
     margin-bottom: 1rem;
 }
 
@@ -458,13 +458,12 @@ span {
 
 .project-info ul{
     font-size: 1.4rem;
-    font-weight: 400;
+    font-weight: 500;
     margin: 0 auto;
     padding: 0;
     text-align: left;
     width: 100%;
     max-width: 90%;
-    
 }
 .project-info ul li {
     margin-bottom: 1.5rem;
@@ -713,7 +712,7 @@ span {
 
 .experience-info {
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 500;
     margin: 0 auto;
     padding: 0;
     text-align: left;
