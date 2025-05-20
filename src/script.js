@@ -3,6 +3,42 @@ const navbar = document.querySelector(".navbar");
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar a");
 
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabPanes = document.querySelectorAll('.tab-pane');
+
+function switchTab(tabId) {
+    tabPanes.forEach(pane => {
+        pane.classList.remove('active');
+    });
+    
+    tabButtons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    const selectedPane = document.getElementById(tabId);
+    const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+    
+    if (selectedPane && selectedButton) {
+        selectedPane.classList.add('active');
+        selectedButton.classList.add('active');
+    }
+}
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        switchTab(tabId);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const firstTab = tabButtons[0];
+    if (firstTab) {
+        const tabId = firstTab.getAttribute('data-tab');
+        switchTab(tabId);
+    }
+});
+
 window.onscroll = () => {
     sections.forEach(section => {
         const scrollPosition = window.scrollY;
