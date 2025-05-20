@@ -719,19 +719,24 @@ html::-webkit-scrollbar-thumb {
 
 .tab-buttons {
     display: flex;
-    gap: 2rem;
+    gap: 0;
     margin-bottom: 3rem;
 }
 
 .tab-btn {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--border-color);
+    border-right: none;
     padding: 1.2rem 2.4rem;
     font-size: 1.6rem;
     color: var(--text-primary);
     opacity: 0.7;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.tab-btn:last-child {
+    border-right: 1px solid var(--border-color);
 }
 
 .tab-btn:hover {
@@ -779,5 +784,11 @@ html::-webkit-scrollbar-thumb {
     
     .tab-btn {
         text-align: left;
+        border-right: 1px solid var(--border-color);
+        border-bottom: none;
+    }
+    
+    .tab-btn:last-child {
+        border-bottom: 1px solid var(--border-color);
     }
 }
