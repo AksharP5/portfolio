@@ -1,19 +1,19 @@
-let lightmode = localStorage.getItem('lightmode');
-const themeSwitch = document.getElementById('theme-switch');
+const savedTheme = localStorage.getItem('lightmode');
+const themeToggle = document.getElementById('theme-switch');
 
-const enableLightMode = () => {
+const enableLightTheme = () => {
     document.body.classList.add('lightmode');
     localStorage.setItem('lightmode', 'active');
 }
 
-const disableLightMode = () => {
+const disableLightTheme = () => {
     document.body.classList.remove('lightmode');
     localStorage.setItem('lightmode', null);
 }
 
-if (lightmode === 'active') enableLightMode()
+if (savedTheme === 'active') enableLightTheme();
 
-themeSwitch.addEventListener('click', () => {
-    lightmode = localStorage.getItem('lightmode');
-    lightmode !== "active" ? enableLightMode() : disableLightMode();
-})
+themeToggle.addEventListener('click', () => {
+    const currentTheme = localStorage.getItem('lightmode');
+    currentTheme !== "active" ? enableLightTheme() : disableLightTheme();
+});
