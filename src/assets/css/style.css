@@ -455,11 +455,23 @@ html::-webkit-scrollbar-thumb {
     transform: translateY(-2px);
 }
 
+.experience-box .tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
 .experience-box .tag h2 {
     font-size: 2rem;
     font-weight: 400;
-    margin-bottom: 2rem;
     opacity: 0.9;
+}
+
+.experience-box .tag .date {
+    font-size: 1.4rem;
+    opacity: 0.7;
+    font-weight: 400;
 }
 
 .experience-info {
@@ -473,19 +485,16 @@ html::-webkit-scrollbar-thumb {
     margin-bottom: 1.5rem;
 }
 
-/* Hide all content by default */
 #tutor, #support {
     display: none;
 }
 
-/* Show content when corresponding radio button is checked */
 #university-tab:checked ~ #university,
 #tutor-tab:checked ~ #tutor,
 #support-tab:checked ~ #support {
     display: block;
 }
 
-/* Hide radio buttons */
 .experience-tabs input[type="radio"] {
     display: none;
 }
@@ -769,7 +778,6 @@ html::-webkit-scrollbar-thumb {
     }
     
     .tab-btn {
-        width: 100%;
         text-align: left;
     }
 }
