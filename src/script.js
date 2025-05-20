@@ -1,23 +1,22 @@
-let menuIcon = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
-
-let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll(".navbar a");
+const menuIcon = document.querySelector("#menu-icon");
+const navbar = document.querySelector(".navbar");
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navbar a");
 
 window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute("id");
+    sections.forEach(section => {
+        const scrollPosition = window.scrollY;
+        const sectionOffset = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove("active");
-                document.querySelector("nav a[href*=" + id + "]" ).classList.add("active")
-            })
+        if (scrollPosition >= sectionOffset && scrollPosition < sectionOffset + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                document.querySelector(`.navbar a[href*=${sectionId}]`).classList.add("active");
+            });
         }
-    })
+    });
 }
 
 menuIcon.onclick = () => {
@@ -27,7 +26,7 @@ menuIcon.onclick = () => {
 
 navLinks.forEach(link => {
     link.onclick = () => {
-        navLinks.forEach(l => l.classList.remove("active"));
+        navLinks.forEach(navLink => navLink.classList.remove("active"));
         link.classList.add("active");
         navbar.classList.remove("active");
         menuIcon.classList.remove("bx-x");
