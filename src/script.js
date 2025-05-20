@@ -3,10 +3,10 @@ const navbar = document.querySelector(".navbar");
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar a");
 
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabPanes = document.querySelectorAll('.tab-pane');
-
-function switchTab(tabId) {
+function switchTab(tabId, section) {
+    const tabButtons = section.querySelectorAll('.tab-btn');
+    const tabPanes = section.querySelectorAll('.tab-pane');
+    
     tabPanes.forEach(pane => {
         pane.classList.remove('active');
     });
@@ -16,7 +16,7 @@ function switchTab(tabId) {
     });
     
     const selectedPane = document.getElementById(tabId);
-    const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+    const selectedButton = section.querySelector(`[data-tab="${tabId}"]`);
     
     if (selectedPane && selectedButton) {
         selectedPane.classList.add('active');
@@ -24,20 +24,60 @@ function switchTab(tabId) {
     }
 }
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const tabId = button.getAttribute('data-tab');
-        switchTab(tabId);
+function switchProject(projectId, section) {
+    const projectButtons = section.querySelectorAll('.project-nav-btn');
+    const projectPanes = section.querySelectorAll('.project-pane');
+    
+    projectPanes.forEach(pane => {
+        pane.classList.remove('active');
     });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const firstTab = tabButtons[0];
-    if (firstTab) {
-        const tabId = firstTab.getAttribute('data-tab');
-        switchTab(tabId);
+    
+    projectButtons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    const selectedPane = document.getElementById(projectId);
+    const selectedButton = section.querySelector(`[data-project="${projectId}"]`);
+    
+    if (selectedPane && selectedButton) {
+        selectedPane.classList.add('active');
+        selectedButton.classList.add('active');
     }
-});
+}
+
+const experienceSection = document.querySelector('.experience-tabs');
+if (experienceSection) {
+    const experienceTabButtons = experienceSection.querySelectorAll('.tab-btn');
+    experienceTabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabId = button.getAttribute('data-tab');
+            switchTab(tabId, experienceSection);
+        });
+    });
+    
+    const firstExperienceTab = experienceTabButtons[0];
+    if (firstExperienceTab) {
+        const tabId = firstExperienceTab.getAttribute('data-tab');
+        switchTab(tabId, experienceSection);
+    }
+}
+
+const projectsSection = document.querySelector('.projects-container');
+if (projectsSection) {
+    const projectButtons = projectsSection.querySelectorAll('.project-nav-btn');
+    projectButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const projectId = button.getAttribute('data-project');
+            switchProject(projectId, projectsSection);
+        });
+    });
+    
+    const firstProjectTab = projectButtons[0];
+    if (firstProjectTab) {
+        const projectId = firstProjectTab.getAttribute('data-project');
+        switchProject(projectId, projectsSection);
+    }
+}
 
 window.onscroll = () => {
     sections.forEach(section => {

@@ -327,25 +327,82 @@ html::-webkit-scrollbar-thumb {
 }
 
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     gap: 3rem;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.projects-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-right: 1px solid var(--border-color);
+    min-width: 200px;
+}
+
+.project-nav-btn {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-right: none;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    width: 100%;
+}
+
+.project-nav-btn:not(:last-child) {
+    border-bottom: none;
+}
+
+.project-nav-btn:hover {
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-color);
+    transform: translateX(2px);
+}
+
+.project-nav-btn.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-color);
+    border-right: 1px solid var(--background-secondary);
+}
+
+.projects-content {
+    flex: 1;
+    position: relative;
+    min-height: 400px;
+}
+
+.project-pane {
+    display: none;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.project-pane.active {
+    display: block !important;
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
 }
 
 .project-box {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--border-color);
-    padding: 4rem;
+    padding: 3rem;
     transition: all 0.3s ease;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--text-primary);
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 400px;
 }
 
 .project-box:hover {
@@ -354,25 +411,86 @@ html::-webkit-scrollbar-thumb {
     transform: translateY(-2px);
 }
 
-.project-info h4 {
-    font-size: 2.4rem;
-    font-weight: 400;
+.project-header {
     margin-bottom: 2rem;
+}
+
+.project-header h2 {
+    font-size: 2rem;
+    font-weight: 400;
     opacity: 0.9;
 }
 
-.project-info ul {
-    flex-grow: 1;
-    margin: 0;
-    padding: 0;
-    list-style-position: inside;
-    font-size: 1.6rem;
-    line-height: 1.6;
+.project-info {
+    font-size: 1.4rem;
+    font-weight: 400;
     opacity: 0.7;
+    line-height: 1.6;
+    list-style-position: inside;
+    margin-bottom: 2rem;
 }
 
-.project-info ul li {
+.project-info li {
     margin-bottom: 1.5rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.project-links .btn {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 1.2rem 2.4rem;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.project-links .btn:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-color);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+    }
+    
+    .projects-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        min-width: 100%;
+        padding-bottom: 1rem;
+    }
+    
+    .project-nav-btn {
+        white-space: nowrap;
+        border: 1px solid var(--border-color);
+        border-bottom: none;
+    }
+    
+    .project-nav-btn.active {
+        border-bottom: 1px solid var(--background-secondary);
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .project-links .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .skills {
@@ -717,48 +835,52 @@ html::-webkit-scrollbar-thumb {
     margin: 0 auto;
 }
 
-.tab-buttons {
+.experience-tabs .tab-buttons {
     display: flex;
     gap: 0;
     margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.tab-btn {
+.experience-tabs .tab-btn {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--border-color);
-    border-right: none;
+    border-bottom: none;
     padding: 1.2rem 2.4rem;
     font-size: 1.6rem;
     color: var(--text-primary);
     opacity: 0.7;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    margin-bottom: -1px;
 }
 
-.tab-btn:last-child {
-    border-right: 1px solid var(--border-color);
+.experience-tabs .tab-btn:not(:last-child) {
+    border-right: none;
 }
 
-.tab-btn:hover {
+.experience-tabs .tab-btn:hover {
     opacity: 0.9;
     background: rgba(255, 255, 255, 0.03);
     border-color: var(--border-color);
     transform: translateY(-2px);
 }
 
-.tab-btn.active {
+.experience-tabs .tab-btn.active {
     opacity: 1;
     background: rgba(255, 255, 255, 0.05);
     border-color: var(--border-color);
+    border-bottom: 1px solid var(--background-secondary);
 }
 
-.tab-content {
+.experience-tabs .tab-content {
     position: relative;
     min-height: 400px;
     height: 100%;
 }
 
-.tab-pane {
+.experience-tabs .tab-pane {
     display: none;
     opacity: 0;
     transform: translateY(10px);
@@ -769,26 +891,141 @@ html::-webkit-scrollbar-thumb {
     left: 0;
 }
 
-.tab-pane.active {
+.experience-tabs .tab-pane.active {
     display: block !important;
     opacity: 1;
     transform: translateY(0);
     position: relative;
 }
 
+/* Projects section styles */
+.projects-tabs {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projects-tabs .tab-buttons {
+    display: flex;
+    gap: 0;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.projects-tabs .tab-btn {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-bottom: -1px;
+}
+
+.projects-tabs .tab-btn:not(:last-child) {
+    border-right: none;
+}
+
+.projects-tabs .tab-btn:hover {
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+.projects-tabs .tab-btn.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-color);
+    border-bottom: 1px solid var(--background-secondary);
+}
+
+.projects-tabs .tab-content {
+    position: relative;
+    min-height: 400px;
+    height: 100%;
+}
+
+.projects-tabs .tab-pane {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.projects-tabs .tab-pane.active {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.project-links .btn {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 1.2rem 2.4rem;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.project-links .btn:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-color);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
 @media (max-width: 768px) {
-    .tab-buttons {
-        flex-direction: column;
+    .experience-tabs .tab-buttons,
+    .projects-tabs .tab-buttons {
+        flex-wrap: wrap;
         gap: 1rem;
-    }
-    
-    .tab-btn {
-        text-align: left;
-        border-right: 1px solid var(--border-color);
         border-bottom: none;
     }
     
-    .tab-btn:last-child {
+    .experience-tabs .tab-btn,
+    .projects-tabs .tab-btn {
+        text-align: left;
+        border: 1px solid var(--border-color);
+        margin-bottom: 0;
+    }
+    
+    .experience-tabs .tab-btn.active,
+    .projects-tabs .tab-btn.active {
         border-bottom: 1px solid var(--border-color);
     }
+    
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .project-links .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.project-skills {
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.6;
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
 }
