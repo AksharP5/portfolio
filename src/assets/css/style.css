@@ -225,25 +225,35 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8rem;
-    background: var(--bg-color)
+    gap: 6rem;
+    background: var(--bg-color);
+    min-height: 100vh;
+    padding: 0 9%;
 }
 
 .home .home-content h1 {
-    font-size: 6rem;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-span {
-    color:var(--main-color);
+    font-size: 5.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
 }
 
 .home-content h3 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    opacity: 0.9;
 }
+
+.home-content p {
+    font-size: 1.7rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
 .home-img {
     border-radius: 50%;
 }
@@ -259,11 +269,6 @@ span {
 .home-img img:hover {
     transform: scale(1.01);
     filter: drop-shadow(0 0 25px var(--main-color));
-}
-
-.home-content p {
-    font-size: 1.8rem;
-    font-weight: 500;
 }
 
 .social-icon a {
