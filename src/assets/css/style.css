@@ -444,6 +444,9 @@ html::-webkit-scrollbar-thumb {
     padding: 3rem;
     margin-bottom: 3rem;
     transition: all 0.3s ease;
+    opacity: 1;
+    display: block;
+    height: 100%;
 }
 
 .experience-box:hover {
@@ -698,4 +701,75 @@ html::-webkit-scrollbar-thumb {
 
 .lightmode #theme-switch svg:last-child {
     display: block;
+}
+
+.experience-tabs {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 1.2rem 2.4rem;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-color);
+}
+
+.tab-content {
+    position: relative;
+    min-height: 400px;
+    height: 100%;
+}
+
+.tab-pane {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.tab-pane.active {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .tab-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        text-align: left;
+    }
 }
