@@ -40,8 +40,10 @@
     <div class="home-content">
       <h1>Hi, I'm <span>Akshar</span></h1>
       <h3>I'm a <span class="typing-span"></span></h3>
-      <p>I am a computer science student eager to learn from experienced mentors in the field of software engineering.
-        In my free time, I enjoy watching sports such as basketball and football, as well as listening to music!</p>
+      <p>
+	I am currently a Data Analyst, with a background in Computer Science and an interest in automation.
+        In my free time, I enjoy watching sports, such as basketball and football, as well as listening to music!
+      </p>
       <div class="social-icon">
         <a href="https://www.linkedin.com/in/akshar5/"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://github.com/AksharP5"><i class="fa-brands fa-square-github"></i></a>
@@ -73,15 +75,39 @@
     
     <div class="projects-container">
       <div class="projects-nav">
-        <button class="project-nav-btn active" data-project="friends">Find Fake Friends</button>
+        <button class="project-nav-btn active" data-project="packaged">Packaged Resume</button>
+        <button class="project-nav-btn" data-project="friends">Find Fake Friends</button>
         <button class="project-nav-btn" data-project="market">Bear Necessities Market</button>
         <button class="project-nav-btn" data-project="plcc">ourPLCC</button>
         <button class="project-nav-btn" data-project="portfolio">Portfolio</button>
         <button class="project-nav-btn" data-project="spotify">Get Spotify Stats</button>
       </div>
 
+
       <div class="projects-content">
-        <div class="project-pane active" id="friends">
+        <div class="project-pane active" id="packaged">
+          <div class="project-box">
+            <div class="project-header">
+              <h2>Packaged Resume</h2>
+              <div class="project-skills"><em>Node.js, JavaScript, Git</em></div>
+            </div>
+            <div class="project-body">
+              <ul class="project-info">
+		<li>Developed an interactive command-line resume distributed as an npm package, accessible via <code>npm install -g akshar-resume<code></li>
+                <li>Implemented formatted tesxt, JSON, and QR code output modes for flexible viewing</li>
+                <li>Configured npm publishing workflows with version control integration and metadata management to enable seamless updates and public accessibility</li>
+                <li>Structured data using a modular JSON schema and integrated argument parsing for dynamic CLI rendering</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/AksharP5/akshar-resume" target="_blank" rel="noopener noreferrer" class="btn">View Source Code</a>
+                <a href="https://www.linkedin.com/posts/akshar5_recruiter-can-you-send-me-your-resume-activity-7379115439269838848-Qspk/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPCtnYB6-WpmNQMPRJWIOsk0Ax4Wjqnzs8" target="_blank" rel="noopener noreferrer" class="btn">View Demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="projects-content">
+        <div class="project-pane" id="friends">
           <div class="project-box">
             <div class="project-header">
               <h2>Find Fake Friends</h2>
