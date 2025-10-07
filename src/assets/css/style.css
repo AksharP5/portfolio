@@ -586,6 +586,18 @@ html::-webkit-scrollbar-thumb {
     opacity: 0.9;
 }
 
+.experience-box .tag .role {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-box .tag .company {
+    font-size: 1.3rem;
+    font-weight: 400;
+    opacity: 0.6;
+    margin-top: 0.4rem;
+}
+
 .experience-box .tag .date {
     font-size: 1.4rem;
     opacity: 0.7;
