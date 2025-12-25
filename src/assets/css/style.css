@@ -376,8 +376,9 @@ html::-webkit-scrollbar-thumb {
 .projects-content {
     flex: 1;
     position: relative;
-    min-height: 400px;
+    min-height: var(--projects-content-min-height, 0px);
 }
+
 
 .project-pane {
     display: none;
@@ -496,21 +497,41 @@ html::-webkit-scrollbar-thumb {
 .skills {
     background: var(--background-primary);
     padding: 10rem 15%;
+    --skills-marquee-duration: 20s;
+    --skills-marquee-gap: 2rem;
+    --skills-set-width: 50%;
 }
 
 .skills .container {
     background: transparent;
     padding: 0;
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 1000px;
     box-shadow: none;
     border: none;
 }
 
-.skills .container .row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+.skills-marquee {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.skills-track {
+    display: flex;
+    width: max-content;
+    transform: translate3d(0, 0, 0);
+    animation: skills-marquee var(--skills-marquee-duration) linear infinite;
+    will-change: transform;
+}
+
+.skills-set {
+    display: flex;
+    gap: var(--skills-marquee-gap);
+    padding-right: var(--skills-marquee-gap);
 }
 
 .skills .container .bar {
@@ -518,11 +539,15 @@ html::-webkit-scrollbar-thumb {
     border: 1px solid var(--border-color);
     padding: 2rem;
     transition: all 0.3s ease;
-    cursor: pointer;
+    cursor: default;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex: 0 0 auto;
+    width: 160px;
+    height: 150px;
+    text-align: center;
 }
 
 .skills .container .bar:hover {
@@ -549,7 +574,30 @@ html::-webkit-scrollbar-thumb {
     font-size: 1.4rem;
     font-weight: 400;
     opacity: 0.7;
+    line-height: 1.2;
 }
+
+@keyframes skills-marquee {
+    from {
+        transform: translate3d(calc(-1 * var(--skills-set-width)), 0, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skills-track {
+        animation: none;
+    }
+
+    .skills-marquee {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+}
+
 
 .experience {
     background: var(--background-secondary);
@@ -781,26 +829,40 @@ html::-webkit-scrollbar-thumb {
 
 @media screen and (max-width: 750px) {
     .skills .container {
-        margin: 0;
-        padding: 1rem;
+        margin: 0 auto;
+        padding: 0;
         width: 100%;
     }
-    .skills .container .row {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+
+    .skills-marquee {
+        padding: 1.5rem 0;
     }
+
+    .skills-track,
+    .skills-set {
+        gap: 1.4rem;
+    }
+
+    .skills-set {
+        padding-right: 1.4rem;
+    }
+
     .skills .container .bar {
-        padding: 10;
-        margin: 0 0.5rem;    
+        padding: 1.2rem;
+        width: 130px;
+        height: 120px;
     }
+
     .skills .container .bar .info img {
-        width: 60px;
-        height: 60px;
+        width: 48px;
+        height: 48px;
     }
+
     .skills .container .bar .info span {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
 }
+
 
 @media screen and (max-width: 600px) {
     .experience-box {

@@ -43,7 +43,10 @@ function switchProject(projectId, section) {
         selectedPane.classList.add('active');
         selectedButton.classList.add('active');
     }
+
+    updateProjectsContentHeight();
 }
+
 
 const experienceSection = document.querySelector('.experience-tabs');
 if (experienceSection) {
@@ -107,4 +110,114 @@ navLinks.forEach(link => {
         navbar.classList.remove("active");
         menuIcon.classList.remove("bx-x");
     };
+});
+
+let marqueeAnimationId = null;
+let marqueeOffset = 0;
+let marqueeLastTime = 0;
+
+function stopSkillsMarquee() {
+    if (marqueeAnimationId) {
+        cancelAnimationFrame(marqueeAnimationId);
+        marqueeAnimationId = null;
+    }
+}
+
+function startSkillsMarquee() {
+    const skillsSection = document.querySelector(".skills");
+    const skillsSet = document.querySelector(".skills-set");
+    const skillsTrack = document.querySelector(".skills-track");
+
+    if (!skillsSection || !skillsSet || !skillsTrack) {
+        return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (prefersReducedMotion.matches) {
+        skillsTrack.style.animation = "none";
+        skillsTrack.style.transform = "";
+        return;
+    }
+
+    const setWidth = Math.round(skillsSet.getBoundingClientRect().width);
+    if (!setWidth) {
+        return;
+    }
+
+    skillsSection.style.setProperty("--skills-set-width", `${setWidth}px`);
+    skillsTrack.style.animation = "none";
+
+    const speed = setWidth / 20;
+    marqueeOffset = -setWidth;
+    marqueeLastTime = performance.now();
+
+    const step = (time) => {
+        const delta = (time - marqueeLastTime) / 1000;
+        marqueeLastTime = time;
+
+        marqueeOffset += speed * delta;
+        if (marqueeOffset >= 0) {
+            marqueeOffset -= setWidth;
+        }
+
+        skillsTrack.style.transform = `translate3d(${marqueeOffset}px, 0, 0)`;
+        marqueeAnimationId = requestAnimationFrame(step);
+    };
+
+    marqueeAnimationId = requestAnimationFrame(step);
+}
+
+function updateSkillsMarqueeWidth() {
+    stopSkillsMarquee();
+    startSkillsMarquee();
+}
+
+function updateProjectsContentHeight() {
+    const projectsContent = document.querySelector(".projects-content");
+
+    if (!projectsContent) {
+        return;
+    }
+
+    const panes = projectsContent.querySelectorAll(".project-pane");
+    if (!panes.length) {
+        return;
+    }
+
+    const contentWidth = Math.round(projectsContent.getBoundingClientRect().width);
+    let maxHeight = 0;
+
+    panes.forEach(pane => {
+        const clone = pane.cloneNode(true);
+        clone.style.position = "absolute";
+        clone.style.visibility = "hidden";
+        clone.style.pointerEvents = "none";
+        clone.style.opacity = "1";
+        clone.style.transform = "none";
+        clone.style.display = "block";
+        clone.style.left = "-9999px";
+        clone.style.top = "0";
+        clone.style.width = `${contentWidth}px`;
+
+        document.body.appendChild(clone);
+        const height = clone.getBoundingClientRect().height;
+        maxHeight = Math.max(maxHeight, height);
+        document.body.removeChild(clone);
+    });
+
+    if (maxHeight > 0) {
+        projectsContent.style.setProperty("--projects-content-min-height", `${Math.ceil(maxHeight)}px`);
+    }
+}
+
+window.addEventListener("load", () => {
+    updateSkillsMarqueeWidth();
+    updateProjectsContentHeight();
+
+    const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    reduceMotionQuery.addEventListener("change", updateSkillsMarqueeWidth);
+});
+window.addEventListener("resize", () => {
+    updateSkillsMarqueeWidth();
+    updateProjectsContentHeight();
 });
