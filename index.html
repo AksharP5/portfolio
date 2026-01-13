@@ -75,7 +75,8 @@
     
     <div class="projects-container">
       <div class="projects-nav">
-        <button class="project-nav-btn active" data-project="packaged">Packaged Resume</button>
+        <button class="project-nav-btn active" data-project="patchline">Patchline</button>
+        <button class="project-nav-btn" data-project="packaged">Packaged Resume</button>
         <button class="project-nav-btn" data-project="friends">Find Fake Friends</button>
         <button class="project-nav-btn" data-project="market">Bear Necessities Market</button>
         <button class="project-nav-btn" data-project="plcc">ourPLCC</button>
@@ -85,7 +86,27 @@
 
 
       <div class="projects-content">
-        <div class="project-pane active" id="packaged">
+
+        <div class="project-pane active" id="patchline">
+          <div class="project-box">
+            <div class="project-header">
+              <h2>Patchline</h2>
+              <div class="project-skills"><em>Go, JavaScript</em></div>
+            </div>
+            <div class="project-body">
+              <ul class="project-info">
+                <li>Developed a standalone Go CLI to manage plugin versions for OpenCode, including syncing, upgrading, and enabling fast recovery through rollback.</li>
+                <li>Built a cross-platform plugin discovery system aggregating project-level and global configurations with local plugin directories, normalizing filesystem paths across macOS, Linux, and Windows.</li>
+                <li>Designed a safe update pipeline using snapshots, atomic file operations, and cache invalidation with path validation to ensure reliable updates and guard against unsafe filesystem operations.</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/AksharP5/Patchline" target="_blank" rel="noopener noreferrer" class="btn">View Source Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-pane" id="packaged">
           <div class="project-box">
             <div class="project-header">
               <h2>Packaged Resume</h2>
